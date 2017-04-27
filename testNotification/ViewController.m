@@ -16,10 +16,21 @@
 
 @implementation ViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   NSLog(@"viewWillAppear");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+   NSLog(@"viewDidLoad");
     [[WZNotificationCenter defaultWZCenter] addObserver:self selector:@selector(add:) name:@"add" object:nil];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSLog(@"viewWillDisappear");
 }
 
 - (IBAction)click:(id)sender {
@@ -31,6 +42,10 @@
 }
 -(void)add:(WZNotification*)notification{
    _textLabel.text=@"接收到了";
+}
+
+-(void)dealloc{
+    [[WZNotificationCenter defaultWZCenter]removeObserver:self];
 
 }
 

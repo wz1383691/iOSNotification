@@ -10,7 +10,7 @@
 
 @interface WZObserverModel : NSObject
 
-@property (nonatomic,strong) id observer;
+@property (nonatomic,weak) id observer;
 @property (nonatomic,assign) SEL selector;
 @property (nonatomic,copy) NSString *notificationName;
 @property (nonatomic,strong) id object;
